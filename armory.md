@@ -4,8 +4,10 @@
   - [Linux Commands and Services](#linux-commands-and-services)
     - [raspistill](#raspistill)
     - [cron](#cron)
+    - [samba](#samba)
   - [Software](#software)
     - [Visual Studio Code](#visual-studio-code)
+    - [Markdown](#markdown)
   - [AWS](#aws)
     - [S3](#s3)
   - [Other Online Services](#other-online-services)
@@ -70,6 +72,19 @@ I run samba on the raspberry pi so I can check in on my recent photos from any o
 Visual Studio Code is Microsoft's free code editor. It's very flexible and powerful, and can be heavily customized for your specific use case. This is analogous to Microsoft Word, but for code. It has features equivalent to spell-checking and formatting, but for coders. It's available for Windows, Mac OS, and Linux.
 
 There are a lot of options out of the box, but one of the best features of VSC is its extensibility. You can install extensions to specialize your VSC for whichever programming languages and online services are important to you. For example, I use extensions for Markdown, Python and GitHub that provide helpful previews, highlighting, and symbols so I can write faster. I also use an extension to upload all my changes to GitHub, which makes it very quick to make changes and post them to the website.
+
+### Markdown
+
+Markdown is sort of a shorthand way to write simple content for the web. I write in Markdown and then use a Visual Studio Code plugin that converts my writing into HTML, which is then uploaded to my site. It's probably best to show the difference. In HTML a link looks like this:
+```
+ <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
+ ```
+ That's a lot of arbitrary stuff to remember! Markdown is a lot simpler:
+ ```
+ [Visit W3Schools.com](https://w3schools.com)
+ ```
+
+My favorite resources for Markdown are [this](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) Markdown cheatsheet on Github, and the Markdown All in One extension for Visual Studio Code by Yu Zhang.
 
 ## AWS
 

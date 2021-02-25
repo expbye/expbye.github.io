@@ -6,6 +6,7 @@ This blog will be a play-by-play of the process of building this project. This w
   - [First steps - February 9, 2021](#first-steps---february-9-2021)
   - [Observations - February 16, 2021](#observations---february-16-2021)
   - [More Observations - February 25, 2021](#more-observations---february-25-2021)
+  - [Adventures in imagemagick - February 26, 2021](#adventures-in-imagemagick---february-26-2021)
 
 ## Thinking about thinking about things - February 2, 2021
 For the last year or so, we've endured a barrage of heavy machinery noise. It's due to a large development project happening behind our apartment. I finally decided to make lemonade with these lemons. Since I've got such a great view of the development, I want to use AI/ML to analyse progress as it occurs.
@@ -46,6 +47,7 @@ Over two weeks of photos now. My directory structure is too flat and it's gettin
 A few major procedure improvements; instead of manually converting my .md files to .html and uploading them through GitHub Desktop to a GitHub-hosted static website, I created an S3 bucket and configured it to host my website. I then followed [these](https://medium.com/avmconsulting-blog/automate-static-website-deployment-from-github-to-s3-using-aws-codepipeline-16acca25ebc1) instructions to set up an AWS CodePipeline that automatically pushes any of my GitHub commits to the bucket. And *then* I configured Visual Studio Code to print my .md files to .html so I can easily commit them to GitHub, which then shoots it all online. 
 
 Things to work on:
+* 15 full days of photos takes up over half of the 32 GB SD card the Raspberry Pi is running on. Not a pressing concern yet, but I need to start planning how to exfiltrate that data before the drive fills.
 * imagemagick is what I need to create my animated .gifs
 * I should write a new script that creates a new folder at the end of every day and moves current photos in there.
 * Maybe I can keep taking night photos, but either do it less frequently or not upload them to S3 or include them in .gifs?
@@ -53,3 +55,14 @@ Things to work on:
 * Need to make some decisions about what other .gifs to create.
 * I know S3 can only be used to host static web pages, but is there some hacky way to show the first photo (easy) and the latest one (hard)?
 * What's the best way to batch upload images to S3? What would it cost to just throw everything there? What about after I adjust photo frequency?
+
+## Adventures in imagemagick - February 26, 2021
+Imagemagick indeed does what I want it to, but it's asking too much of the Raspberry Pi. The Pi thinks for about 6-7 minutes, runs out of RAM, and crashes before it manages to write any of the animated .gif. You can adjust the imagemagick config file to avoid the out of resources crash, so I did that. I tested on my laptop and desktop and got better, but not great results. Ffmpeg looks like a viable alternative.
+
+Observations:
+* Copying the day's photos from the Pi across Wi-Fi to my laptop took just over 15 minutes. IIRC, this generation of Pi's ethernet port runs on the USB bus, so transfer speeds are unlikely to improve by adding a physical connection. A newer Pi would do better, but I think it's better to consider other options.
+* I could take photos and then immediately upload them.
+* Alternatively, stop taking photos at night and do a large batch upload during down hours.
+* 6:50 AM seems to be the first photo that sunrise becomes noticeable. 7:50 PM seems to be the equivalent time for sunset, but on some days you can still see activity on the site even after that. Most of the lights around the periphery of the construction site seem to be set to turn off between 10:50 PM and midnight.
+* Identifying when there is after-hours activity and when there isn't might be another job for AI/ML.
+* I know this is fun, but go to sleep someday.

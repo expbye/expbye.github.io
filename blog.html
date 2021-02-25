@@ -69,6 +69,7 @@
 </ul>
 <h2 id="more-observations---february-25-2021">More Observations - February 25, 2021</h2>
 <p>Over two weeks of photos now. My directory structure is too flat and it's getting annoying to look through them, so I manually created a directory for each day and moved photos in there. The smallest day so far is just under a gigabyte and the largest one is just over 1.1, so they're staying pretty consistent. I looked through a lot of the night photos; I don't think it's worth keeping most of them. It's kind of neat to occasionally see the night watchman's flashlight winding through the site or spot an occasional cleanup crew, but I doubt these photos are high quality enough to glean any insight from programmatically.</p>
+<p>A few major procedure improvements; instead of manually converting my .md files to .html and uploading them through GitHub Desktop to a GitHub-hosted static website, I created an S3 bucket and configured it to host my website. I then followed <a href="https://medium.com/avmconsulting-blog/automate-static-website-deployment-from-github-to-s3-using-aws-codepipeline-16acca25ebc1">these</a> instructions to set up an AWS CodePipeline that automatically pushes any of my GitHub commits to the bucket. And <em>then</em> I configured Visual Studio Code to print my .md files to .html so I can easily commit them to GitHub, which then shoots it all online.</p>
 <p>Things to work on:</p>
 <ul>
 <li>imagemagick is what I need to create my animated .gifs</li>
@@ -77,6 +78,7 @@
 <li>The forementioned script should also create a .gif of each day's photos.</li>
 <li>Need to make some decisions about what other .gifs to create.</li>
 <li>I know S3 can only be used to host static web pages, but is there some hacky way to show the first photo (easy) and the latest one (hard)?</li>
+<li>What's the best way to batch upload images to S3? What would it cost to just throw everything there? What about after I adjust photo frequency?</li>
 </ul>
 
     </body>

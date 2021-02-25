@@ -1,5 +1,5 @@
 # Blog
-This blog will be a play-by-play of the process of building this project. This will be written basically stream of consciousness at unpredictable intervals, so don't expect to find anything too useful here.
+This blog will be a play-by-play of the process of building this project. This will be written basically stream of consciousness at unpredictable intervals, so don't expect to find anything too useful here. Also, more than any other section of the website, this one is written with an audience of one in mind: myself.
 
 - [Blog](#blog)
   - [Thinking about thinking about things - February 2, 2021](#thinking-about-thinking-about-things---february-2-2021)

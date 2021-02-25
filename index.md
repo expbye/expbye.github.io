@@ -12,9 +12,9 @@ I'm going to do things with this site that are not the best or the fastest or th
 
 At first, there will be three main sections:
 
-1. Blog - this will be an infrequently updated discussion of what I'm working on
+1. [Blog](http://expbye.com/blog.html) - this will be an infrequently updated discussion of what I'm working on
 2. How-to - This will have more structured instructions on how to do things I found useful
-3. [Armory](https://expbye.github.io/armory.html) - This will be a frequently updated list of languages, services, programs, and whatever else that I use developing the site. This may also include things that I consider but ultimately don't use.
+3. [Armory](http://expbye.com/armory.html) - This will be a frequently updated list of languages, services, programs, and whatever else that I use developing the site. This may also include things that I consider but ultimately don't use.
 
 ## Historicity
 

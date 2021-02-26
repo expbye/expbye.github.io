@@ -20,7 +20,7 @@ Second pass - expanding to five sections:
 1. [Blog](http://expbye.com/blog.html) - written in a conversational tone intended for all audiences regardless of technical experience.
 2. Glossary - Quick explanations of important concepts, services, and tools that I'm using to complete my task. Also written for all audiences.
 3. How-to - This will be step-by-step, illustrated tutorials for various parts of my process. This will be written to bridge audiences; it's intended to give less technical users the courage to dip their toes into the deep end, or for more technical users to easily follow along. This will be the least frequently portion of this site, but will probably be where I spend most of my time.
-4. [Armory](http://expbye.com/armory.html) - Essentially the glossary, but written for more experienced tech users. This will include specific usage information, like snippets of code and OS or AWS configuration details. Intended as a quick reference for more experienced users.
+4. [Armory](http://expbye.com/armory.html) - Essentially the glossary, but written for more experienced tech users. This will include specific usage information, like snippets of code and OS or AWS configuration details. I'll also include links to useful tutorials I find elsewhere. Intended as a quick reference for more experienced users.
 5. Notes - This will be a stream of consciousness collection of links, observations, and considerations as I develop this project. It's not really intended for other audiences, but it may be interesting enough for a casual glance from very bored people.
 
 ## Historicity

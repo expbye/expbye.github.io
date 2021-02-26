@@ -7,6 +7,7 @@ This blog will be a play-by-play of the process of building this project. This w
   - [Observations - February 16, 2021](#observations---february-16-2021)
   - [More Observations - February 25, 2021](#more-observations---february-25-2021)
   - [Adventures in imagemagick - February 26, 2021](#adventures-in-imagemagick---february-26-2021)
+  - [ffmpeg explorations - Later on February 26, 2021](#ffmpeg-explorations---later-on-february-26-2021)
 
 ## Thinking about thinking about things - February 2, 2021
 For the last year or so, we've endured a barrage of heavy machinery noise. It's due to a large development project happening behind our apartment. I finally decided to make lemonade with these lemons. Since I've got such a great view of the development, I want to use AI/ML to analyse progress as it occurs.
@@ -57,7 +58,7 @@ Things to work on:
 * What's the best way to batch upload images to S3? What would it cost to just throw everything there? What about after I adjust photo frequency?
 
 ## Adventures in imagemagick - February 26, 2021
-Imagemagick indeed does what I want it to, but it's asking too much of the Raspberry Pi. The Pi thinks for about 6-7 minutes, runs out of RAM, and crashes before it manages to write any of the animated .gif. You can adjust the imagemagick config file to avoid the out of resources crash, so I did that. I tested on my laptop and desktop and got better, but not great results. Ffmpeg looks like a viable alternative.
+Imagemagick indeed does what I want it to, but it's asking too much of the Raspberry Pi. The Pi thinks for about 6-7 minutes, runs out of RAM, and crashes before it manages to write any of the animated .gif. You can adjust the imagemagick config file to avoid the out of resources crash, so I did that. I tested on my laptop and desktop and got better, but not great results. Ffmpeg looks like a viable alternative. I'll fiddle around with it on my stronger systems and then see if it's viable to run on the Raspberry Pi.
 
 Observations:
 * Copying the day's photos from the Pi across Wi-Fi to my laptop took just over 15 minutes. IIRC, this generation of Pi's ethernet port runs on the USB bus, so transfer speeds are unlikely to improve by adding a physical connection. A newer Pi would do better, but I think it's better to consider other options.
@@ -66,3 +67,18 @@ Observations:
 * 6:50 AM seems to be the first photo that sunrise becomes noticeable. 7:50 PM seems to be the equivalent time for sunset, but on some days you can still see activity on the site even after that. Most of the lights around the periphery of the construction site seem to be set to turn off between 10:50 PM and midnight.
 * Identifying when there is after-hours activity and when there isn't might be another job for AI/ML.
 * I know this is fun, but go to sleep someday.
+
+## ffmpeg explorations - Later on February 26, 2021
+ffmpeg is awesome! It's tremendously faster at what I need it to do. It may even be possible to run on the Pi. It only takes a few second to run on my desktop. I generated my first animated gif and was tickled by the results. It has a really neat tilt-shift effect that makes it look like you're watching toys in a sandbox. There's still a lot to work out, though.
+
+Things to work out:
+* Is animated gif the best format for these purposes? Is there an alternative format that is either smaller or gives better quality at the same file size?
+* A gif at full resolution (2592x1944) of just the daytime photos was about 700 megabytes. How do I get that file size down?
+    * Crop the photos. About a third of the left side of each photo is not relevant to my purposes. There are several ways to do this:
+      * Crop when the photo is taken using raspistill arguments? Saves disk space, but then I lose that left side of the photo entirely.
+      * Duplicate the photo later and crop out the left side. Costs more CPU and disk space resources, but I keep all my data in case I get interested in that later; this part of the photo shows the current Holland Village parking lot, and it may be interesting to apply some ML to see how popular the lot is at various times.
+      * Maybe ffmpeg can crop at time of gif generation?
+    * Drop the resolution to something like 720p. This is slightly more expensive in terms of CPU resources, but saves on everything else.
+      * Can do this with raspistill using the -quality option or the -w and -h arguments, but I'd lose photo quality for later analysis.
+      * ffmpeg can do this at time of gif creation. Probably best option.
+    * Change compression type at time of gif creation.
